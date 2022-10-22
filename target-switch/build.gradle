@@ -48,7 +48,7 @@ afterEvaluate {
                 from components.release
                 groupId = 'com.github.shubhamnandanwar'
                 artifactId = 'target-switch'
-                version = '1.0'
+                version = '1.1'
             }
         }
     }

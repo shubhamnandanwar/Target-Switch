@@ -1,4 +1,4 @@
-package com.shunan.target_switch
+package com.shunan.TargetSwitch
 
 import android.animation.Animator
 import android.animation.ValueAnimator
@@ -12,6 +12,7 @@ import android.util.Log
 import android.view.View
 import android.view.animation.DecelerateInterpolator
 import androidx.core.content.ContextCompat
+import com.shunan.target_switch.R
 
 class TargetSwitch(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : View(context, attrs, defStyleAttr), Animator.AnimatorListener {
     private var isAnimating = false

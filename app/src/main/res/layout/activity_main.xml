@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <com.shunan.target_switch.TargetSwitch
+    <com.shunan.TargetSwitch.TargetSwitch
         android:layout_width="57dp"
         android:layout_height="30dp"
         android:text="Hello World!"

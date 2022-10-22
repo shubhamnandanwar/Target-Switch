@@ -1,4 +1,4 @@
-package com.shunan.target_switch
+package com.shunan.TargetSwitch
 
 interface TargetSwitchAnimListener {
     fun onAnimStart()
