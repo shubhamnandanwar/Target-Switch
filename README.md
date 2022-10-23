@@ -27,6 +27,18 @@ dependencies {
 }
 ```
 
+## Example
+``` 
+  <com.shunan.TargetSwitch.TargetSwitch
+        android:id="@+id/targetSwitch"
+        android:layout_width="120dp"
+        android:layout_height="64dp"
+        app:ts_background_padding="4dp"
+        app:ts_background_tint="#BDBDBD"
+        app:ts_duration="2500"
+        app:ts_foreground_tint="#FFCDD2" />
+```
+
 License
 ----
 Copyright 2018 Shubham Nandanwar
