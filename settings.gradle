@@ -13,5 +13,5 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "Target Switch"
-include ':app'
+include ':sample'
 include ':target-switch'

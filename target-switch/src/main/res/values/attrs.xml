@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <declare-styleable name="TargetSwitch">
+        <attr name="ts_duration" format="integer" />
+        <attr name="ts_background_tint" format="color" />
+        <attr name="ts_foreground_tint" format="color" />
+        <attr name="ts_background_padding" format="dimension" />
+    </declare-styleable>
+
+</resources>
