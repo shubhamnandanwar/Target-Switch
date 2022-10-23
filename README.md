@@ -4,6 +4,7 @@ Target Switch with animation
 [![Download](https://img.shields.io/badge/download-1.1-brightgreen.svg?style=flat) ](https://github.com/shubhamnandanwar/Target-Switch/releases/tag/1.0)
 
 ![Preview basic functionality screenshot](https://raw.githubusercontent.com/shubhamnandanwar/Target-Switch/master/art/target_switch.png)
+
 A switch for showing/hiding target with cool dart animation.
 
 ## Preview
