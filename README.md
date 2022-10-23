@@ -5,6 +5,10 @@ Target Switch with animation
 
 A switch for showing/hiding target with cool dart animation.
 
+## Preview
+![Preview basic functionality screenshot](https://raw.githubusercontent.com/shubhamnandanwar/TargetSwitch/master/art/preview.gif)
+
+
 ## Prerequisites
 Add this to your project build.gradle
 ``` gradle
