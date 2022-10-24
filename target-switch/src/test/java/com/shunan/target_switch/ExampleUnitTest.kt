@@ -1,4 +1,4 @@
-package com.shunan.TargetSwitch
+package com.shunan.target_switch
 
 import org.junit.Test
 

@@ -1,4 +1,4 @@
-package com.shunan.TargetSwitch
+package com.shunan.target_switch
 
 import android.animation.Animator
 import android.animation.ValueAnimator
@@ -9,10 +9,8 @@ import android.graphics.drawable.GradientDrawable
 import android.util.AttributeSet
 import android.view.View
 import android.view.animation.AccelerateDecelerateInterpolator
-import android.view.animation.AccelerateInterpolator
-import android.view.animation.DecelerateInterpolator
 import androidx.core.content.ContextCompat
-import com.shunan.target_switch.R
+import androidx.databinding.BindingAdapter
 import kotlin.math.max
 import kotlin.math.min
 import kotlin.math.roundToInt
@@ -25,7 +23,7 @@ class TargetSwitch(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : 
     private val dartBitmap: Drawable
     var backgroundPadding: Float = 0f
     private var value: Float
-    var isOff: Boolean
+    var isChecked: Boolean
         private set
     private var duration: Long
     private var listener: TargetSwitchListener? = null
@@ -43,7 +41,7 @@ class TargetSwitch(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : 
     init {
         setWillNotDraw(false)
         value = 0f
-        isOff = false
+        isChecked = false
         duration = 500
         setOnClickListener {
             toggle()
@@ -74,8 +72,8 @@ class TargetSwitch(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : 
     fun toggle() {
         if (!isAnimating) {
             isAnimating = true
-            isOff = !isOff
-            if (listener != null) listener!!.onSwitch(isOff)
+            isChecked = !isChecked
+            if (listener != null) listener!!.onSwitch(isChecked)
             startAnimation()
         }
     }
@@ -168,11 +166,11 @@ class TargetSwitch(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : 
     override fun onAnimationCancel(animation: Animator) {}
     override fun onAnimationRepeat(animation: Animator) {}
 
-    fun setIsNight(is_night: Boolean, trigger_listener: Boolean) {
-        isOff = is_night
-        value = if (is_night) 1f else 0.toFloat()
-        invalidate()
-        if (listener != null && trigger_listener) listener!!.onSwitch(is_night)
+    fun setChecked(isChecked: Boolean, trigger_listener: Boolean) {
+        this.isChecked = isChecked
+        value = if (isChecked) 1f else 0.toFloat()
+        startAnimation()
+        if (listener != null && trigger_listener) listener!!.onSwitch(isChecked)
     }
 
     fun setListener(listener: TargetSwitchListener?) {
@@ -186,4 +184,34 @@ class TargetSwitch(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : 
     fun setDuration(duration: Long) {
         this.duration = duration
     }
+
+    fun setForegroundTint(color: Int) {
+        lightBackDrawable = GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, intArrayOf(color, color))
+        invalidate()
+    }
+
+    fun setBackgroundTint(color: Int) {
+        darkBackDrawable = GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, intArrayOf(color, color))
+        invalidate()
+    }
+}
+
+@BindingAdapter("ts_checked")
+fun bindCheck(view: TargetSwitch, flag: Boolean) {
+    view.setChecked(flag, false)
+}
+
+@BindingAdapter("ts_duration")
+fun bindDuration(view: TargetSwitch, duration: Int) {
+    view.setDuration(duration.toLong())
+}
+
+@BindingAdapter("ts_background_tint")
+fun bindBackgroundTint(view: TargetSwitch, color: Int) {
+    view.setBackgroundTint(color)
+}
+
+@BindingAdapter("ts_foreground_tint")
+fun bindForegroundTint(view: TargetSwitch, color: Int) {
+    view.setForegroundTint(color)
 }

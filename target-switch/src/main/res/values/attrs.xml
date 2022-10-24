@@ -3,6 +3,7 @@
 
 
     <declare-styleable name="TargetSwitch">
+        <attr name="ts_checked" format="boolean" />
         <attr name="ts_duration" format="integer" />
         <attr name="ts_background_tint" format="color" />
         <attr name="ts_foreground_tint" format="color" />
