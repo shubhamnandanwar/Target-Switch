@@ -16,7 +16,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-        //val switch = findViewById<TargetSwitch>(R.id.targetSwitch)
         binding.flag = true
         binding.foregroundTint = ContextCompat.getColor(applicationContext, R.color.purple_200)
         binding.backgroundTint = ContextCompat.getColor(applicationContext, R.color.teal_200)
