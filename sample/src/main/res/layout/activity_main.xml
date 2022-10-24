@@ -1,23 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white"
-    tools:context=".MainActivity">
+<layout>
 
-    <com.shunan.TargetSwitch.TargetSwitch
-        android:id="@+id/targetSwitch"
-        android:layout_width="120dp"
-        android:layout_height="64dp"
-        app:ts_background_padding="4dp"
-        app:ts_background_tint="#BDBDBD"
-        app:ts_duration="2500"
-        app:ts_foreground_tint="#FFCDD2"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <data>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <variable
+            name="flag"
+            type="Boolean" />
+
+        <variable
+            name="duration"
+            type="Integer" />
+
+
+        <variable
+            name="foregroundTint"
+            type="Integer" />
+
+        <variable
+            name="backgroundTint"
+            type="Integer" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:context=".MainActivity">
+
+        <com.shunan.target_switch.TargetSwitch
+            android:id="@+id/targetSwitch"
+            android:layout_width="120dp"
+            android:layout_height="64dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:ts_background_padding="4dp"
+            app:ts_background_tint="@{backgroundTint}"
+            app:ts_checked="@{flag}"
+            app:ts_duration="@{duration}"
+            app:ts_foreground_tint="@{foregroundTint}" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
