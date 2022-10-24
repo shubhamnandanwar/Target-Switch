@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.flag = true
         binding.foregroundTint = ContextCompat.getColor(applicationContext, R.color.purple_200)
-        binding.backgroundTint = ContextCompat.getColor(applicationContext, R.color.teal_200)
+        binding.backgroundTint = ContextCompat.getColor(applicationContext, R.color.black)
         binding.duration = 500
 
         binding.targetSwitch.setAnimListener(object : TargetSwitchAnimListener {

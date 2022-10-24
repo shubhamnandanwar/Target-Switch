@@ -7,6 +7,7 @@ import android.graphics.Canvas
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.GradientDrawable
 import android.util.AttributeSet
+import android.util.Log
 import android.view.View
 import android.view.animation.AccelerateDecelerateInterpolator
 import androidx.core.content.ContextCompat
@@ -73,13 +74,14 @@ class TargetSwitch(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : 
         if (!isAnimating) {
             isAnimating = true
             isChecked = !isChecked
-            if (listener != null) listener!!.onSwitch(isChecked)
+            listener?.onSwitch(isChecked)
             startAnimation()
         }
     }
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
+
         val space = width - height
 
         lightBackDrawable.cornerRadius = height.toFloat() / 2
@@ -142,25 +144,25 @@ class TargetSwitch(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : 
 
     private fun startAnimation() {
         val va: ValueAnimator = ValueAnimator.ofFloat(0f, 1f)
-        if (value == 1f) va.setFloatValues(1f, 0f)
+        if (isChecked) va.setFloatValues(1f, 0f)
         va.duration = duration
         va.addListener(this)
         va.interpolator = AccelerateDecelerateInterpolator()
         va.addUpdateListener { animation ->
             value = animation.animatedValue.toString().toFloatOrNull() ?: 0f
-            if (animListener != null) animListener!!.onAnimValueChanged(value)
+            animListener?.onAnimValueChanged(value)
             invalidate()
         }
         va.start()
     }
 
     override fun onAnimationStart(animation: Animator) {
-        if (animListener != null) animListener!!.onAnimStart()
+        animListener?.onAnimStart()
     }
 
     override fun onAnimationEnd(animation: Animator) {
         isAnimating = false
-        if (animListener != null) animListener!!.onAnimEnd()
+        animListener?.onAnimEnd()
     }
 
     override fun onAnimationCancel(animation: Animator) {}
@@ -168,9 +170,8 @@ class TargetSwitch(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : 
 
     fun setChecked(isChecked: Boolean, trigger_listener: Boolean) {
         this.isChecked = isChecked
-        value = if (isChecked) 1f else 0.toFloat()
-        startAnimation()
-        if (listener != null && trigger_listener) listener!!.onSwitch(isChecked)
+        value = if (isChecked) 0f else 1f
+        if (trigger_listener) listener?.onSwitch(isChecked)
     }
 
     fun setListener(listener: TargetSwitchListener?) {

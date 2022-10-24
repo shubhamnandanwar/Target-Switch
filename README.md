@@ -1,7 +1,7 @@
 # Target-Switch
 Target Switch with animation
 [![API](https://img.shields.io/badge/API-15%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=16)
-[![Download](https://img.shields.io/badge/download-1.4-brightgreen.svg?style=flat) ](https://github.com/shubhamnandanwar/Target-Switch/releases/tag/1.0)
+[![Download](https://img.shields.io/badge/download-1.5-brightgreen.svg?style=flat) ](https://github.com/shubhamnandanwar/Target-Switch/releases/tag/1.0)
 
 ![Preview basic functionality screenshot](https://raw.githubusercontent.com/shubhamnandanwar/Target-Switch/master/art/target_switch.png)
 
@@ -25,7 +25,7 @@ Add this to your module build.gradle
 
 ``` gradle
 dependencies {
-    implementation 'com.github.shubhamnandanwar:Target-Switch:1.4'
+    implementation 'com.github.shubhamnandanwar:Target-Switch:1.5'
 }
 ```
 
@@ -40,6 +40,17 @@ dependencies {
         app:ts_duration="2500"
         app:ts_foreground_tint="#FFCDD2" />
 ```
+
+
+### Attributes
+Attributes | Type                  | Default         | Description
+--- |-----------------------|-----------------| ---
+ts_checked | Boolean               | false           | Switch Check
+ts_duration | Integer               | 500             | Switch animation duration in milliseconds.
+ts_background_tint | Color                 | #DDDDDD         | background color when the switch is off.
+ts_foreground_tint | Color                 | #FFCDD2         | foreground color when the switch is on.
+ts_background_padding | Dimension             | 0dp             | padding between switch and background
+
 
 License
 ----
